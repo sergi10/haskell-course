@@ -56,15 +56,15 @@ quotient number divisor
 sumsquares :: Float -> Float -> Float 
 sumsquares x y = squar + quotient
     where 
-        squar = (x*y) ^ 2
-        quotient = (x/y) ^2
+        squar = sqrt (x*y)
+        quotient = sqrt (x/y)
 
 
 sumsquares2 :: Float -> Float -> Float 
 sumsquares2 x y = 
     let 
-        squar = (x*y)^2
-        quotient = (x/y)^2
+        squar = sqrt (x*y)
+        quotient = sqrt (x/y)
     in squar + quotient
 
 -- Solution
