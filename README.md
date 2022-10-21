@@ -66,6 +66,12 @@ Everything else can be safely ignored
 
 **If there are no buttons on a lesson, it means that it's not published yet.**
 
+---
+
+### START OF THE BEGINNER SECTION 🐣⟶🐥
+
+---
+
 ### 1. Intro and tools [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/input-output-hk/haskell-course/HEAD?labpath=%2Flessons%2F01-Introduction-to-haskell.ipynb) [![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=flat&logo=YouTube&logoColor=white)](https://youtu.be/pkU8eiNZipQ)
 
 - Intro to the course and lectures
@@ -134,19 +140,20 @@ Everything else can be safely ignored
   - The `.` operator
 - Point-free style
 
-### 6. Recursion
+### 6. Recursion [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/input-output-hk/haskell-course/HEAD?labpath=%2Flessons%2F06-Recursion-and-folds.ipynb) [![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=flat&logo=YouTube&logoColor=white)](https://www.youtube.com/watch?v=wzvbUxSykXM)
 
-- Concept
-- Examples
+- Why Recursion?
+- Thinking Recursively
+    - `sum` and `product`
+- Steps to create your own recursive function
+- Examples of recursion
+    - `and`, `length`, `reverse`, `drop`, `take`, `map`, `filter`
+- Extracting the `foldr` pattern
+- The `foldl` function
+- The `foldl'` function
+- When to use `foldr`, `foldl`, and `foldl'`
 
-### 7. Dealing with lists
-
-- `zip`
-- `map`
-- `foldl`, `foldr`
-- `scan`
-
-### 8. Intro to Type Classes
+### 7. Intro to Type Classes
 
 - What are type classes?
 - Common type classes
@@ -158,7 +165,7 @@ Everything else can be safely ignored
   - Mentioning `Read`, `Show`, `Enum`, `Bounded`, and `Foldable`.
 - Class constraints with examples
 
-### 9. Creating Types
+### 8. Creating Types
 
 - Type synonyms
   - How to define type synonyms
@@ -173,7 +180,7 @@ Everything else can be safely ignored
   - Parameterizing new types
 - Honorable mention of `newType`
 
-### 10. Creating Type Classes and Instances
+### 9. Creating Type Classes and Instances
 
 - Revisiting Type Classes
 - The `Eq` type class
@@ -186,7 +193,7 @@ Everything else can be safely ignored
 - Deriving
 - Complete example
 
-### 11. Basic IO
+### 10. Basic IO
 
 - We need side effects
 - What is IO
@@ -201,14 +208,7 @@ Everything else can be safely ignored
 - Read/Write to console
 - Read/Write to file
 
-### 12. Bits and Bytes
-
-- Grouping bits and bytes
-- Haskell and bytes
-- Lazy and strict byte strings
-- Example
-
-### 13. Pragmas, Modules, and Cabal
+### 11. Pragmas, Modules, and Cabal
 
 - Prelude
 - pragmas/extensions
@@ -224,14 +224,15 @@ Everything else can be safely ignored
   - Cabal file
   - Using external libraries with Cabal
 
-### 14. Learning on your own and Map
+### 12. Bits and Bytes
 
-- Using GHCi to find out more
-- Hoogle
-- HaskellWiki
-- Walking through while teaching Map module
+- Grouping bits and bytes
+- Haskell and bytes
+- Lazy and strict byte strings
+- Example
 
-### 15. Maybe and Either (only practical use)
+
+### 13. Maybe and Either (only practical use)
 
 - Maybe
   - Why and when to use Maybe
@@ -243,38 +244,54 @@ Everything else can be safely ignored
   - Examples
 - Project using Maybe and IO
 
-### 16. Aeson
+### 14. Learning on your own and Map
+
+- Using GHCi to find out more
+- Hoogle
+- HaskellWiki
+- Walking through while teaching Map module
+
+---
+
+### END OF THE BEGINNER SECTION 🐥
+
+---
+
+#### Congratulations! 🥳 You can call yourself a (beginner) Haskell programmer!
+#### YOU'RE READY FOR THE MARLOWE PIONEER PROGRAM! 🥳🎉 (Keep going for Plutus.)
+
+---
+
+### START OF THE INTERMEDIATE SECTION 🐥⟶🐓
+
+---
+
+### 15. Monoid
+
+- Basic idea (definition without details)
+- Intuitive examples
+- Extracting the pattern
+- Complete definition (with all the details/laws)
+
+### 16. Functor
+
+- Basic idea (definition without details)
+- Intuitive examples
+- Extracting the pattern
+- Complete definition (with all the details/laws)
+
+### 17. Applicative
+
+- Basic idea (definition without details)
+- Intuitive examples
+- Extracting the pattern
+- Complete definition (with all the details/laws)
+
+### 18. Aeson
 
 - Aeson
 
----
-
-#### YOU'RE READY FOR MARLOWE! 🥳🎉 (Keep going for Plutus.)
-
----
-
-### 17. Monoid
-
-- Basic idea (definition without details)
-- Intuitive examples
-- Extracting the pattern
-- Complete definition (with all the details/laws)
-
-### 18. Functor
-
-- Basic idea (definition without details)
-- Intuitive examples
-- Extracting the pattern
-- Complete definition (with all the details/laws)
-
-### 19. Applicative
-
-- Basic idea (definition without details)
-- Intuitive examples
-- Extracting the pattern
-- Complete definition (with all the details/laws)
-
-### 20. Monad
+### 19. Monad
 
 - Basic idea (definition without details)
 - Intuitive examples
@@ -282,28 +299,28 @@ Everything else can be safely ignored
 - Complete definition (with all the details/laws)
 - `do` notation in general
 
-### 21. Reader Monad
+### 20. Reader Monad
 
 - Incentive/Motivation
 - Binding strategy (see [here](https://wiki.haskell.org/All_About_Monads#The_Reader_monad))
 - Definition
 - Examples
 
-### 22. Writer Monad
+### 21. Writer Monad
 
 - Incentive/Motivation
 - Binding strategy
 - Definition
 - Examples
 
-### 23. State Monad
+### 22. State Monad
 
 - Incentive/Motivation
 - Binding strategy
 - Definition
 - Examples
 
-### 24. Monadic functions / Operating with Monads
+### 23. Monadic functions / Operating with Monads
 
 - liftM
 - sequence and sequence\_
@@ -311,6 +328,8 @@ Everything else can be safely ignored
 - filterM
 - foldM
 
-### 25. Transformers
+### 24. Transformers
 
 - TODO
+
+### TODO: It keeps going, but I'm not sure about the outline yet. 😬
