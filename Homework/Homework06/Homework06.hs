@@ -4,7 +4,8 @@
 --
 -- >>> repeat 17
 --[17,17,17,17,17,17,17,17,17...
-
+repeat' :: Int -> [Int]
+repeat' x =  x : repeat' x
 
 -- Question 2
 -- Using the `repeat'` function and the `take` function we defined in the lesson (comes with Haskell),
@@ -17,6 +18,13 @@
 -- []
 -- >>> replicate 4 True
 -- [True,True,True,True]
+replicate' :: Int -> a -> [a]
+replicate' 0     _    = []
+replicate' (-1)  _    = []
+replicate' x     y    =  y : replicate' (x-1) y 
+
+--solution
+replicate n x = take n (repeat' x)
 
 
 -- Question 3
@@ -24,7 +32,18 @@
 --
 -- >>> concat' [[1,2],[3],[4,5,6]]
 -- [1,2,3,4,5,6]
-
+concat' :: [[a]] -> [a]
+{-
+concat' [[]]        = []
+--concat' [[]]      = []
+concat' x         = x : []
+concat' (x:xs)    = x : concat' xs
+--concat' x         = [x]
+-}
+--solution
+concat' = foldr (++) []
+--Use
+--zipWith' (+) [1,2,2] [4,5,6]
 
 -- Question 4
 -- Write a function called `zip'` that takes two lists and returns a list of
@@ -44,7 +63,10 @@
 -- []
 -- >>> zip' [1..] []
 -- []
-
+zip' :: [a] -> [b] -> [(a,b)]
+zip' [] _ = []
+zip' _ [] = []
+zip' (x:xs) (y:yz) = (x,y) : zip' xs yz
 
 
 -- Question 5
@@ -60,6 +82,13 @@
 -- >>> zipWith (+) [1, 2, 3] [4, 5, 6]
 -- [5,7,9]
 
+zipWith' :: (a -> a -> a)-> [a] -> [a] -> [a]
+zipWith' _ [] _ = []
+zipWith' _ _ [] = []
+zipWith' f (x:xs) (y:ys) =  x `f` y : zipWith' f xs ys
+--Use
+--zipWith' (+) [1,2,2] [4,5,6]
+
 
 -- Question 6
 -- Write a function called `takeWhile'` that takes a precate and a list and
@@ -72,12 +101,21 @@
 -- >>> takeWhile (< 0) [1,2,3]
 -- []
 
+takeWhile' :: (a -> Bool) -> [a] -> [a]
+takeWhile' _ [] = []
+takeWhile' f (x:xs)
+  | f x = x : takeWhile' f xs 
+  | otherwise  = takeWhile' f xs 
 
 -- Question 7 (More difficult)
 -- Write a function that takes in an integer n, calculates the factorial n! and
 -- returns a string in the form of 1*2* ... *n = n! where n! is the actual result.
 
-
+factorailN ::  Int -> Int  
+--factorailN 0 = 1
+factorailN x 
+  | x > 0  = x * factorailN x -1 
+-- otherwise = 1 
 -- Question 8
 -- Below you have defined some beer prices in bevogBeerPrices and your order list in
 -- orderList + the deliveryCost. Write a function that takes in an order and calculates
