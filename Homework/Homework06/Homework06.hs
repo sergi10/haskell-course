@@ -111,10 +111,27 @@ takeWhile' f (x:xs)
 -- Write a function that takes in an integer n, calculates the factorial n! and
 -- returns a string in the form of 1*2* ... *n = n! where n! is the actual result.
 
-factorailN ::  Int -> Int  
+--factorailN ::  Int -> Int  
 --factorailN 0 = 1
-factorailN x 
-  | x > 0  = x * factorailN x -1 
+--factorailN x 
+--  | x > 0  = x * factorailN x -1 
+factorailN ::  Int -> String
+factorailN x  = show x ++  "*" ++ factorailN (x-1)
+  
+factorailN2 ::  Int -> String
+factorailN2 x  = 
+  let result = show x ++  "*" ++ factorailN (x-1)
+  in result
+
+--solution
+factorial :: Int -> String
+factorial n = accumulate 2 "1" ++ " = " ++ show result
+  where
+    accumulate x string
+      | x > n = string
+      | otherwise = accumulate (x + 1) (string ++ "*" ++ show x)
+    result = product [1 .. n]
+
 -- otherwise = 1 
 -- Question 8
 -- Below you have defined some beer prices in bevogBeerPrices and your order list in
