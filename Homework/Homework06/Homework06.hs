@@ -155,3 +155,17 @@ orderList =
 
 deliveryCost :: Double
 deliveryCost = 8.50
+
+beerPrices :: [(a,b)] -> [(a,b)] -> [(a,b)]
+beerPrices [] _ = []
+beerPrices _ [] = []
+beerPrices ((k,v):xs) ((l,p):yz) = (k,(v + p)) : beerPrices xs yz
+
+-- Solution
+
+beerCosts :: [(String, Double)] -> Double
+beerCosts =
+  foldr (+) deliveryCost
+    . zipWith (*) (map snd bevogBeerPrices)
+    . map snd
+    . filter (\name -> fst name `elem` map fst bevogBeerPrices)
