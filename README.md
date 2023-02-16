@@ -175,45 +175,48 @@ Everything else can be safely ignored
   - Value parameters
 - Record syntax
 
-### 9. Creating Parameterized and Recursive Types
+### 9. Creating Parameterized and Recursive Types [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/input-output-hk/haskell-course/HEAD?labpath=%2Flessons%2F09-Creating-parameterized-and-recursive-types.ipynb) [![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=flat&logo=YouTube&logoColor=white)](https://www.youtube.com/watch?v=wPV94aZIOGQ)
 
 - Type Parameters
-  - Prameteryzing type synonyms
-  - Prameteryzing data types
+  - Prameteryzing `type` synonyms
+  - Prameteryzing `data` types
 - Recursive data types
   - `Tweet` me a river
   - A `Sequence` of `Node`s
   - A `Tree` of `Node`s
-- The `newType` keyword
 - Kinds
+- The `newType` keyword
 
-### 10. Creating Type Classes and Instances
+### 10. Creating Type Classes and Instances [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/input-output-hk/haskell-course/HEAD?labpath=%2Flessons%2F10-Creating-Type-Classes-and-Instances.ipynb) [![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=flat&logo=YouTube&logoColor=white)](https://www.youtube.com/watch?v=I6tmM3wNGEI)
 
-- Revisiting Type Classes
+- Overloading
+- Steps to create Type Classes and Instances
 - The `Eq` type class
-  - Defining the `Eq` type class
-  - Defining an instance for the `Eq` type class
-  - Improving our `Eq` type class (minimal complete definition)
-  - Defining an instance for a parameterize type.
-- The `Ord` type class
-  - Exploring `Ord` type class (Subclassing)
+  - Defining the Type Class
+  - Defining multiple instances
+  - Improving our `Eq` type class with mutual recursion (and Minimal Complete Definitions)
+  - Defining an instance for a parameterized type.
+- The `WeAccept` Type Class
+- The `Container` Type Class
+- Exploring `Ord` type class (Subclassing)
 - Deriving
-- Complete example
+  - Deriving can go wrong
 
-### 11. Basic IO
+### 11. Basic IO  [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/input-output-hk/haskell-course/HEAD?labpath=%2Flessons%2F11-Basic-IO.ipynb) [![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=flat&logo=YouTube&logoColor=white)](https://www.youtube.com/watch?v=0xQ8j6h8bNc)
 
-- We need side effects
-- What is IO
-- main + putStrLn + composing other functions
-- `>>`
-- `>>=`
-- do notation
-  - `do`
-  - `<-`
-  - `let`
-- Some examples
-- Read/Write to console
-- Read/Write to file
+- Pure functions
+- Introduction to IO actions
+- IO actions under the hood
+- IO actions in practice
+  - The `()` type
+- Interacting with the user
+  - `getChar`, `getLine`, and `putStrLn`
+- Actions are first-class values
+- Composing IO actions (`>>` and `>>=` operators)
+- The `do` block
+  - Using `let`, nesting do-blocks, escaping `IO` and `return`
+- The `main` action
+- Concepts and syntax recap
 
 ### 12. Pragmas, Modules, and Cabal
 
