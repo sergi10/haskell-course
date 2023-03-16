@@ -53,3 +53,52 @@ still need to make another choice.
 
 6. Adapt adapt "solveMaze" function to use "showCurrentChoice" and play with your new game using GHCi! :D
 -}
+{-
+import Test.QuickCheck (Function(function))
+data Move = GoLeft | GoRight | GoForward deriving (Show)
+data Maze a = EmptyM | Node a (Maze a)
+-- data Maze a = EmptyM | a :-> (Maze a)
+
+
+data Sequence a = EmptyS | a :-> (Sequence a)
+
+-- data []       a = []     | a :   [a]
+-- variables
+myMaze :: Maze Move
+myMaze = GoRight GoLeft GoLeft GoForward
+
+move :: (Eq a) -> Move -> Maze 
+move EmptyM _           = "Contratulation you're out of Maze"
+move (y :-> ys) mov     = y == mov || ys
+-}
+
+-- Step 1
+data Move = GoForward | GoLeft | GoRight
+
+data Maze = FoundExit | HitWall | Passage Maze Maze Maze deriving (Show)
+
+-- Step 2
+move :: Maze -> Move -> Maze
+move HitWall _ = HitWall
+move FoundExit _ = FoundExit
+move (Passage x _ _) GoLeft = x
+move (Passage _ x _) GoForward = x
+move (Passage _ _ x) GoRight = x
+
+-- Step 3
+testMaze :: Maze
+testMaze = Passage HitWall (Passage FoundExit HitWall HitWall) (Passage HitWall (Passage HitWall HitWall HitWall) HitWall)
+
+-- Step 4
+solveMaze' :: Maze -> [Move] -> Maze
+solveMaze' = foldl move
+
+-- Step 5
+showCurrentChoice :: Maze -> String
+showCurrentChoice HitWall = "You've hit a wall!"
+showCurrentChoice FoundExit = "YOU'VE FOUND THE EXIT!!"
+showCurrentChoice _ = "You're still inside the maze. Choose a path, brave adventurer: GoLeft, GoRight, or GoForward."
+
+-- Step 6
+solveMaze :: Maze -> [Move] -> String
+solveMaze l m = showCurrentChoice $ foldl move l m
